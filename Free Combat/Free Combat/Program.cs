@@ -9,6 +9,7 @@ namespace Rawlings_Code
         {
             Game game = new Game();
             game.ChooseYourCharacter();
+            game.CharacterChosen();
         }
     }
 }
