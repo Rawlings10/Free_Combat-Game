@@ -12,42 +12,50 @@ namespace Free_Combat.Mechanics
     {
         public static int player1hp = 100;
         public static int player2hp = 100;
+        public string player1character;
+        public string player2character;
 
         public void ChooseYourCharacter()
         {
-            Console.WriteLine("Choose your character");
-            Console.WriteLine("1 --- Jake");
-            Console.WriteLine("2 --- Blaze");
-            Console.WriteLine("3 --- Taser");
-            Console.WriteLine("4 --- Kyrexi");
-            Console.WriteLine("5 --- Valtorix");
-            Console.WriteLine("6 --- Kora");
-            Console.WriteLine("7 --- Vex");
-            Console.WriteLine("8 --- Zeph");
-            Console.WriteLine("9 --- Krod");
-            Console.WriteLine("10 --- Kim");
-
-            Console.WriteLine();
-            Console.WriteLine("Choose your character:");
-            int choice = int.Parse(Console.ReadLine());
-
-            Character pickplayer = choice switch
+            int choice;
+            do 
             {
-                1 => new Jake(),
-                2 => new Blaze(),
-                3 => new Taser(),
-                4 => new Kyrexi(),
-                5 => new Valtorix(),
-                6 => new Kora(),
-                7 => new Vex(),
-                8 => new Zeph(),
-                9 => new Krod(),
-                10 => new Kim(),
-                _ => throw new ArgumentException("Invalid choice")
-            };
+                Console.WriteLine("Choose your character");
+                Console.WriteLine("1 --- Jake");
+                Console.WriteLine("2 --- Blaze");
+                Console.WriteLine("3 --- Taser");
+                Console.WriteLine("4 --- Kyrexi");
+                Console.WriteLine("5 --- Valtorix");
+                Console.WriteLine("6 --- Kora");
+                Console.WriteLine("7 --- Vex");
+                Console.WriteLine("8 --- Zeph");
+                Console.WriteLine("9 --- Krod");
+                Console.WriteLine("10 --- Kim");
 
-            string[] characternames = { " ", "Jake", "Blaze", "Taser", " Kyrexi", "Valtorix", "Kora", "Vex", "Zeph", "Krod", "Kim" }; 
-            Console.WriteLine($"You choose: {characternames[choice]}");          
-        }
+                Console.WriteLine();
+                Console.WriteLine("Choose your character:");
+                choice = int.Parse(Console.ReadLine());
+
+                Character pickplayer = choice switch
+                {
+                    1 => new Jake(),
+                    2 => new Blaze(),
+                    3 => new Taser(),
+                    4 => new Kyrexi(),
+                    5 => new Valtorix(),
+                    6 => new Kora(),
+                    7 => new Vex(),
+                    8 => new Zeph(),
+                    9 => new Krod(),
+                    10 => new Kim(),
+                    _ => throw new ArgumentException("Invalid choice")
+                };
+
+                string[] characternames = { " ", "Jake", "Blaze", "Taser", " Kyrexi", "Valtorix", "Kora", "Vex", "Zeph", "Krod", "Kim" };
+                Console.WriteLine($"You choose: {characternames[choice]}");
+            }
+            while ( choice < 3);
+            }
+           
     } 
 }
