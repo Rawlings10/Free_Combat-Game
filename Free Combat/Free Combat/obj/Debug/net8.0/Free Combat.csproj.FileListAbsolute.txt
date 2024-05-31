@@ -13,3 +13,18 @@ C:\Users\rawll\Desktop\Codes\C#\Object Oriented Programming\Free Combat\Free Com
 C:\Users\rawll\Desktop\Codes\C#\Object Oriented Programming\Free Combat\Free Combat\obj\Debug\net8.0\Free Combat.pdb
 C:\Users\rawll\Desktop\Codes\C#\Object Oriented Programming\Free Combat\Free Combat\obj\Debug\net8.0\Free Combat.genruntimeconfig.cache
 C:\Users\rawll\Desktop\Codes\C#\Object Oriented Programming\Free Combat\Free Combat\obj\Debug\net8.0\ref\Free Combat.dll
+C:\Users\rawll\Desktop\Codes\Git\Free_Combat-Game\Free Combat\Free Combat\bin\Debug\net8.0\Free Combat.exe
+C:\Users\rawll\Desktop\Codes\Git\Free_Combat-Game\Free Combat\Free Combat\bin\Debug\net8.0\Free Combat.deps.json
+C:\Users\rawll\Desktop\Codes\Git\Free_Combat-Game\Free Combat\Free Combat\bin\Debug\net8.0\Free Combat.runtimeconfig.json
+C:\Users\rawll\Desktop\Codes\Git\Free_Combat-Game\Free Combat\Free Combat\bin\Debug\net8.0\Free Combat.dll
+C:\Users\rawll\Desktop\Codes\Git\Free_Combat-Game\Free Combat\Free Combat\bin\Debug\net8.0\Free Combat.pdb
+C:\Users\rawll\Desktop\Codes\Git\Free_Combat-Game\Free Combat\Free Combat\obj\Debug\net8.0\Free Combat.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\rawll\Desktop\Codes\Git\Free_Combat-Game\Free Combat\Free Combat\obj\Debug\net8.0\Free Combat.AssemblyInfoInputs.cache
+C:\Users\rawll\Desktop\Codes\Git\Free_Combat-Game\Free Combat\Free Combat\obj\Debug\net8.0\Free Combat.AssemblyInfo.cs
+C:\Users\rawll\Desktop\Codes\Git\Free_Combat-Game\Free Combat\Free Combat\obj\Debug\net8.0\Free Combat.csproj.CoreCompileInputs.cache
+C:\Users\rawll\Desktop\Codes\Git\Free_Combat-Game\Free Combat\Free Combat\obj\Debug\net8.0\Free Combat.sourcelink.json
+C:\Users\rawll\Desktop\Codes\Git\Free_Combat-Game\Free Combat\Free Combat\obj\Debug\net8.0\Free Combat.dll
+C:\Users\rawll\Desktop\Codes\Git\Free_Combat-Game\Free Combat\Free Combat\obj\Debug\net8.0\refint\Free Combat.dll
+C:\Users\rawll\Desktop\Codes\Git\Free_Combat-Game\Free Combat\Free Combat\obj\Debug\net8.0\Free Combat.pdb
+C:\Users\rawll\Desktop\Codes\Git\Free_Combat-Game\Free Combat\Free Combat\obj\Debug\net8.0\Free Combat.genruntimeconfig.cache
+C:\Users\rawll\Desktop\Codes\Git\Free_Combat-Game\Free Combat\Free Combat\obj\Debug\net8.0\ref\Free Combat.dll

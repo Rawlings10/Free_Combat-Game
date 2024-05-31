@@ -49,20 +49,5 @@ namespace Free_Combat.Mechanics
             string[] characternames = { " ", "Jake", "Blaze", "Taser", " Kyrexi", "Valtorix", "Kora", "Vex", "Zeph", "Krod", "Kim" }; 
             Console.WriteLine($"You choose: {characternames[choice]}");          
         }
-
-        public void Opponent()
-        {
-            Console.WriteLine("Choose your character");
-            Console.WriteLine("1 --- Jake");
-            Console.WriteLine("2 --- Blaze");
-            Console.WriteLine("3 --- Taser");
-            Console.WriteLine("4 --- Kyrexi");
-            Console.WriteLine("5 --- Valtorix");
-            Console.WriteLine("6 --- Kora");
-            Console.WriteLine("7 --- Vex");
-            Console.WriteLine("8 --- Zeph");
-            Console.WriteLine("9 --- Krod");
-            Console.WriteLine("10 --- Kim");
-        }
     } 
 }
