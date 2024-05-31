@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\rawll\\Desktop\\Codes\\C#\\Object Oriented Programming\\Free Combat\\Free Combat\\Free Combat.csproj",
+      "projectUniqueName": "C:\\Users\\rawll\\Desktop\\Codes\\Git\\Free_Combat-Game\\Free Combat\\Free Combat\\Free Combat.csproj",
       "projectName": "Free Combat",
-      "projectPath": "C:\\Users\\rawll\\Desktop\\Codes\\C#\\Object Oriented Programming\\Free Combat\\Free Combat\\Free Combat.csproj",
+      "projectPath": "C:\\Users\\rawll\\Desktop\\Codes\\Git\\Free_Combat-Game\\Free Combat\\Free Combat\\Free Combat.csproj",
       "packagesPath": "C:\\Users\\rawll\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\rawll\\Desktop\\Codes\\C#\\Object Oriented Programming\\Free Combat\\Free Combat\\obj\\",
+      "outputPath": "C:\\Users\\rawll\\Desktop\\Codes\\Git\\Free_Combat-Game\\Free Combat\\Free Combat\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
