@@ -15,7 +15,8 @@ namespace Free_Combat.Mechanics
         public static int player2hp = 100;
         public static string player1character;
         public static string player2character;
-        public string[] players = { "Player1", "Player2" };
+        internal string[] players = { "Player1", "Player2" };
+        internal static bool IsSpecialAbilityUsed = false;
 
         public void ChooseYourCharacter()
         {
@@ -34,7 +35,6 @@ namespace Free_Combat.Mechanics
                 Console.WriteLine("10 --- Kim");
 
                 Console.WriteLine();
-                Console.WriteLine("Choose your character:");
                 int choice = int.Parse(Console.ReadLine());
 
                 Character pickplayer = choice switch
@@ -57,7 +57,7 @@ namespace Free_Combat.Mechanics
 
                 if(i == 0)
                 {
-                    player1character = characternames[choice]; 
+                    player1character = characternames[choice];
                 }
                 else
                 {
@@ -69,6 +69,41 @@ namespace Free_Combat.Mechanics
         {
             Console.WriteLine($"{players[0]} choose {player1character}");
             Console.WriteLine($"{players[1]} choose {player2character}");           
-        } 
+        }
+
+        public static int Punch(int punch)
+        {
+            punch /= 12;
+            Random random = new Random();
+            punch = random.Next(punch, punch + 4);
+            return punch;
+        }
+
+        public static int Kick(int kick)
+        {
+            kick /= 12;
+            Random random = new Random();
+            kick = random.Next(kick, kick + 4);
+            return kick;
+        }
+
+        public static bool SpecialAbility(int obbs, int obbspower)
+        {
+            if (IsSpecialAbilityUsed == false)
+            {
+                int damage = obbs + obbspower;
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("Obbs Damage!!!");
+                Console.ResetColor();
+            } 
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Special Ability has been used!!!");
+                Console.ResetColor();
+            }
+            return IsSpecialAbilityUsed = true;           
+        }
+        
     } 
 }
