@@ -1,5 +1,6 @@
 ﻿using Free_Combat.Mechanics;
 using System;
+using System.Security.Cryptography;
 
 namespace Rawlings_Code
 {
@@ -9,6 +10,7 @@ namespace Rawlings_Code
         {
             Game game = new Game();
             game.ChooseYourCharacter();
+            Console.Clear();
             game.CharacterChosen();
         }
     }

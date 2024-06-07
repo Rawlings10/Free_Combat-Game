@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,25 +10,31 @@ namespace Free_Combat.Characters
 {
     internal class Blaze: Character
     {
-        public static string name = "Blaze";
-        public static int health = 100;
-        public static int obbs = 12;
-        public static int punchpower = 88;
-        public static int kickpower = 76;
-        public static int strenght = 95;
-        public static int obbpower = 2;
+        internal static string name = "Blaze";
+        internal static int health = 100;
+        internal static int obbs = 12;
+        internal static int punchpower = 88;
+        internal static int kickpower = 76;
+        internal static int strenght = 95;
+        internal static int obbpower = 2;
 
-        internal override void PlayerControl()
+        internal override void PlayerControl(ConsoleKey key)
         {
-            throw new NotImplementedException();
+            switch (key)
+            {
+                case ConsoleKey.A:
+                    Game.Punch(punchpower);
+                    break;
+                case ConsoleKey.B:
+                    Game.Kick(kickpower);
+                    break;
+                case ConsoleKey.W:
+                    Game.SpecialAbility(obbs, obbpower);
+                    break;
+            }
         }
 
         internal override void SkillMove()
-        {
-            throw new NotImplementedException();
-        }
-
-        internal override void SpecialAbility()
         {
             throw new NotImplementedException();
         }

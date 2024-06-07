@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 
 namespace Free_Combat.Mechanics
 {
@@ -54,10 +55,12 @@ namespace Free_Combat.Mechanics
 
                 string[] characternames = { " ", "Jake", "Blaze", "Taser", " Kyrexi", "Valtorix", "Kora", "Vex", "Zeph", "Krod", "Kim" };
                 Console.WriteLine($"You choose: {characternames[choice]}");
+                SetTimer(500);
+                Console.Clear();
 
                 if(i == 0)
                 {
-                    player1character = characternames[choice];
+                    player1character = characternames[choice];                    
                 }
                 else
                 {
@@ -71,12 +74,12 @@ namespace Free_Combat.Mechanics
             Console.WriteLine($"{players[1]} choose {player2character}");           
         }
 
-        public static int Punch(int punch)
+        public static int Punch(int punchpower)
         {
-            punch /= 12;
+            punchpower /= 12;
             Random random = new Random();
-            punch = random.Next(punch, punch + 4);
-            return punch;
+            punchpower = random.Next(punchpower, punchpower + 4);
+            return punchpower;
         }
 
         public static int Kick(int kick)
@@ -104,6 +107,23 @@ namespace Free_Combat.Mechanics
             }
             return IsSpecialAbilityUsed = true;           
         }
-        
+
+        public static void SetTimer(int time)
+        {
+            Thread.Sleep(1000);           
+        }
+
+        internal static void Player1AttackDamage(int damagedone)
+        {
+            damagedone = player2hp - Punch();
+        }    
+
+        public static int FightScene(int health1, int health2)
+        {
+            while (health1 > 0 && health2 > 0)
+            {
+
+            }  
+        }        
     } 
 }

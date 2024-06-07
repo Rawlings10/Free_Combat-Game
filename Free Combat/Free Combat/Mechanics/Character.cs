@@ -10,8 +10,6 @@ namespace Free_Combat.Mechanics
     {
         internal abstract void SkillMove();
 
-        internal abstract void SpecialAbility();
-
-        internal abstract void PlayerControl();
+        internal abstract void PlayerControl(ConsoleKey key);
     }
 }
