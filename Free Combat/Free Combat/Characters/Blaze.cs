@@ -8,8 +8,9 @@ using Free_Combat.Mechanics;
 
 namespace Free_Combat.Characters
 {
-    internal class Blaze: Character
+    internal class Blaze: IPlayersAbility
     {
+        internal int HP { get; set; } = 100;
         internal static string name = "Blaze";
         internal static int health = 100;
         internal static int obbs = 12;
@@ -18,7 +19,7 @@ namespace Free_Combat.Characters
         internal static int strenght = 95;
         internal static int obbpower = 2;
 
-        internal override void PlayerControl(ConsoleKey key)
+        public void PlayerControl(ConsoleKey key)
         {
             switch (key)
             {
@@ -34,7 +35,7 @@ namespace Free_Combat.Characters
             }
         }
 
-        internal override void SkillMove()
+        public void SkillMove()
         {
             throw new NotImplementedException();
         }
