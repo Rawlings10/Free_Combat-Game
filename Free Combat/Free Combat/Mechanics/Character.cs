@@ -54,19 +54,7 @@ namespace Free_Combat.Mechanics
                 "Zeph",
                 "Krod",
                 "Kim",
-            }; 
-
-            for (int i = 0; i < players.Length; i++) 
-            {
-                Console.WriteLine($"{players[i]} Choose your Character");
-
-            }
-        }
-        
-        public void CharacterChosen()
-        {
-            Console.WriteLine($"{players[0]} choose {player1character}");
-            Console.WriteLine($"{players[1]} choose {player2character}");           
+            };    
         }
 
         public static void Punch(int punchpower)
@@ -74,7 +62,7 @@ namespace Free_Combat.Mechanics
             punchpower /= 12;
             Random random = new Random();
             punchpower = random.Next(punchpower, punchpower + 4);
-            PlayerHP -= punchpower;
+           // PlayerHP -= punchpower;
         }
 
         public static void Kick(int kickpower)
@@ -82,7 +70,7 @@ namespace Free_Combat.Mechanics
             kickpower /= 12;
             Random random = new Random();
             kickpower = random.Next(kickpower, kickpower + 4);
-            PlayerHP -= kickpower;
+           // PlayerHP -= kickpower;
         }
 
         public static bool SpecialAbility(int obbs, int obbspower)
