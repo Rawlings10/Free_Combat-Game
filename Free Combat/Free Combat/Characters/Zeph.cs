@@ -9,6 +9,11 @@ namespace Free_Combat.Characters
 {
     internal class Zeph : Character
     {
+        public Zeph(string name) : base(name, 100)
+        {
+
+        }
+
         public static string name = "Zeph";
         public static int health = 100;
         public static int obbs = 15;
@@ -17,17 +22,12 @@ namespace Free_Combat.Characters
         public static int strenght = 86;
         public static int obbpower = 2;
 
-        internal override void PlayerControl()
+        public void PlayerControl(ConsoleKey key)
         {
             throw new NotImplementedException();
         }
 
-        internal override void SkillMove()
-        {
-            throw new NotImplementedException();
-        }
-
-        internal override void SpecialAbility()
+        public void SkillMove()
         {
             throw new NotImplementedException();
         }

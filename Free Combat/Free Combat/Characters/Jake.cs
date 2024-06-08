@@ -7,8 +7,13 @@ using Free_Combat.Mechanics;
 
 namespace Free_Combat.Characters
 {
-    internal class Jake : Character
+    internal class Jake : Character, IPlayersAbility
     {
+        public Jake(string name) : base(name, 100)
+        {
+
+        }
+
         public static string name = "Jake";
         public static int health ;
         public static int obbs = 12;
@@ -17,22 +22,12 @@ namespace Free_Combat.Characters
         public static int strenght = 93;
         public static int obbpower = 3;
 
-    public void GamePlay()
-        {
-
-        }
-
-    internal override void PlayerControl()
-    {
-            throw new NotImplementedException();
-        }
-
-        internal override void SkillMove()
+        public void PlayerControl(ConsoleKey key)
         {
             throw new NotImplementedException();
         }
 
-        internal override void SpecialAbility()
+        public void SkillMove()
         {
             throw new NotImplementedException();
         }

@@ -8,8 +8,13 @@ using Free_Combat.Mechanics;
 
 namespace Free_Combat.Characters
 {
-    internal class Blaze: IPlayersAbility
+    internal class Blaze: Character, IPlayersAbility
     {
+        public Blaze(string name) : base(name, 100)
+        {
+
+        }
+
         internal int HP { get; set; } = 100;
         internal static string name = "Blaze";
         internal static int health = 100;
@@ -24,13 +29,13 @@ namespace Free_Combat.Characters
             switch (key)
             {
                 case ConsoleKey.A:
-                    Game.Punch(punchpower);
+                    Character.Punch(punchpower);
                     break;
                 case ConsoleKey.B:
-                    Game.Kick(kickpower);
+                    Character.Kick(kickpower);
                     break;
                 case ConsoleKey.W:
-                    Game.SpecialAbility(obbs, obbpower);
+                    Character.SpecialAbility(obbs, obbpower);
                     break;
             }
         }

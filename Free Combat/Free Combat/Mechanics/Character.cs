@@ -10,84 +10,79 @@ using System.Threading;
 
 namespace Free_Combat.Mechanics
 {
-    public class Game
+    public class Character
     {
-        public static int player1hp = 100;
-        public static int player2hp = 100;
-        public static string player1character;
-        public static string player2character;
+        public int PlayerHP { get; set; }
+        public string Name { get; set; }
+
         internal string[] players = { "Player1", "Player2" };
+
         internal static bool IsSpecialAbilityUsed = false;
+
+        public Character(string name, int playerHP) 
+        {
+            this.Name = name;
+            this.PlayerHP = playerHP;
+        }
 
         public void ChooseYourCharacter()
         {
-            for(int i = 0; i < players.Length; i++)
+            List<Func<string, Character>> SelectPlayer = new List<Func<string, Character>>()
             {
-                Console.WriteLine($"{players[i]} Choose your character");
-                Console.WriteLine("1 --- Jake");
-                Console.WriteLine("2 --- Blaze");
-                Console.WriteLine("3 --- Taser");
-                Console.WriteLine("4 --- Kyrexi");
-                Console.WriteLine("5 --- Valtorix");
-                Console.WriteLine("6 --- Kora");
-                Console.WriteLine("7 --- Vex");
-                Console.WriteLine("8 --- Zeph");
-                Console.WriteLine("9 --- Krod");
-                Console.WriteLine("10 --- Kim");
+                name => new Blaze(name),
+                name => new Jake(name),
+                name => new Taser(name),
+                name => new Kyrexi(name),
+                name => new Valtorix(name),
+                name => new Kora(name),
+                name => new Vex(name),
+                name => new Zeph(name),
+                name => new Krod(name),
+                name => new Kim(name),
+                _ => throw new ArgumentException("Invalid choice"),
+            };
 
-                Console.WriteLine();
-                int choice = int.Parse(Console.ReadLine());
+            List<string> characterNames = new List<string>()
+            {
+                "Blaze",
+                "Jake",
+                "Taser",
+                "Kyrexi",
+                "Valtorix",
+                "Kora",
+                "Vex",
+                "Zeph",
+                "Krod",
+                "Kim",
+            }; 
 
-                Character pickplayer = choice switch
-                {
-                    1 => new Jake(),
-                    2 => new Blaze(),
-                    3 => new Taser(),
-                    4 => new Kyrexi(),
-                    5 => new Valtorix(),
-                    6 => new Kora(),
-                    7 => new Vex(),
-                    8 => new Zeph(),
-                    9 => new Krod(),
-                    10 => new Kim(),
-                    _ => throw new ArgumentException("Invalid choice")
-                };
+            for (int i = 0; i < players.Length; i++) 
+            {
+                Console.WriteLine($"{players[i]} Choose your Character");
 
-                string[] characternames = { " ", "Jake", "Blaze", "Taser", " Kyrexi", "Valtorix", "Kora", "Vex", "Zeph", "Krod", "Kim" };
-                Console.WriteLine($"You choose: {characternames[choice]}");
-                SetTimer(500);
-                Console.Clear();
-
-                if(i == 0)
-                {
-                    player1character = characternames[choice];                    
-                }
-                else
-                {
-                    player2character = characternames[choice];
-                }
-            }         
+            }
         }
+        
         public void CharacterChosen()
         {
             Console.WriteLine($"{players[0]} choose {player1character}");
             Console.WriteLine($"{players[1]} choose {player2character}");           
         }
 
-        public static int Punch(int punchpower)
+        public static void Punch(int punchpower)
         {
             punchpower /= 12;
             Random random = new Random();
             punchpower = random.Next(punchpower, punchpower + 4);
-            return punchpower;
+            PlayerHP -= punchpower;
         }
 
-        public static int Kick(int kick)
+        public static void Kick(int kickpower)
         {
-            kick /= 12;
+            kickpower /= 12;
             Random random = new Random();
-            kick = random.Next(kick, kick + 4);
-            return kick;
+            kickpower = random.Next(kickpower, kickpower + 4);
+            PlayerHP -= kickpower;
         }
 
         public static bool SpecialAbility(int obbs, int obbspower)
@@ -111,19 +106,6 @@ namespace Free_Combat.Mechanics
         public static void SetTimer(int time)
         {
             Thread.Sleep(1000);           
-        }
-
-        internal static void Player1AttackDamage(int damagedone)
-        {
-            damagedone = player2hp - Punch();
-        }    
-
-        public static int FightScene(int health1, int health2)
-        {
-            while (health1 > 0 && health2 > 0)
-            {
-
-            }  
-        }        
+        }     
     } 
 }
