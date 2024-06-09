@@ -25,9 +25,9 @@ namespace Free_Combat.Mechanics
             this.PlayerHP = playerHP;
         }
 
-        public void ChooseYourCharacter()
+        public void ChoosenCharacter()
         {
-            List<Func<string, Character>> choosePlayer = new List<Func<string, Character>>()
+            List<Func<string, Character>> choosenPlayer = new List<Func<string, Character>>()
             {
                 name => new Blaze(name),
                 name => new Jake(name),
@@ -57,10 +57,18 @@ namespace Free_Combat.Mechanics
             };
 
             Console.WriteLine("Player 1, choose your Character: ");
-            Character player1 = Selectplayer("Player1", choosePlayer, characterNames);
-
+            Character player1 = Selectplayer("Player1", choosenPlayer, characterNames);
+            Console.WriteLine();
             Console.WriteLine("Player 2, choose your Character: ");
-            Character player2 = Selectplayer("Player2", choosePlayer, characterNames);
+            Character player2 = Selectplayer("Player2", choosenPlayer, characterNames);
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine($"{player1.Name} ({player1.GetType().Name})");
+            Console.WriteLine("              vs");
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine($"                 {player2.Name} ({player2.GetType().Name})");
+            //Console.ResetColor();
         }
 
         public static Character Selectplayer(string name, List<Func<string, Character>> selectPlayer, List<string> classNames)
@@ -73,7 +81,7 @@ namespace Free_Combat.Mechanics
             int choice;
             do
             {
-                Console.Write($"Select a class (1-{classNames.Count}: " );
+                Console.Write($"Select a class (1-{classNames.Count}): " );
             }
             while(!int.TryParse(Console.ReadLine(), out choice) || choice < 1 || choice > classNames.Count);
 

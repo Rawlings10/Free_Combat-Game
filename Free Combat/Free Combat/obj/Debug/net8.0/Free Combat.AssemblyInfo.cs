@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Free Combat")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+86c6e40c05ccbd82652c0dae277039718019d710")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8174b167ee564824e86eab2910b7952af4cd25a1")]
 [assembly: System.Reflection.AssemblyProductAttribute("Free Combat")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Free Combat")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
