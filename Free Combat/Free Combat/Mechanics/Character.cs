@@ -12,10 +12,8 @@ namespace Free_Combat.Mechanics
 {
     public class Character
     {
-        public int PlayerHP { get; set; }
+        public int PlayerHP { get; protected set; }
         public string Name { get; set; }
-
-        internal string[] players = { "Player1", "Player2" };
 
         internal static bool IsSpecialAbilityUsed = false;
 
@@ -63,12 +61,13 @@ namespace Free_Combat.Mechanics
             Character player2 = Selectplayer("Player2", choosenPlayer, characterNames);
             Console.WriteLine();
             Console.WriteLine();
-            Console.ForegroundColor = ConsoleColor.Red;
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine($"{player1.Name} ({player1.GetType().Name})");
+            Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("              vs");
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine($"                 {player2.Name} ({player2.GetType().Name})");
-            //Console.ResetColor();
+            Console.ResetColor();
         }
 
         public static Character Selectplayer(string name, List<Func<string, Character>> selectPlayer, List<string> classNames)
@@ -81,36 +80,38 @@ namespace Free_Combat.Mechanics
             int choice;
             do
             {
-                Console.Write($"Select a class (1-{classNames.Count}): " );
+                Console.Write($"Select a character (1-{classNames.Count}): " );
             }
             while(!int.TryParse(Console.ReadLine(), out choice) || choice < 1 || choice > classNames.Count);
 
             return selectPlayer[choice - 1](name);
         }
 
-        public static void Punch(int punchpower)
+        public void Punch(int punchpower)
         {
             punchpower /= 12;
             Random random = new Random();
             punchpower = random.Next(punchpower, punchpower + 4);
-           // PlayerHP -= punchpower;
+            PlayerHP -= punchpower; 
         }
 
-        public static void Kick(int kickpower)
+        public void Kick(int kickpower)
         {
             kickpower /= 12;
             Random random = new Random();
             kickpower = random.Next(kickpower, kickpower + 4);
-           // PlayerHP -= kickpower;
+            PlayerHP -= kickpower;
         }
 
-        public static bool SpecialAbility(int obbs, int obbspower)
+        public bool SpecialAbility(int obbs, int obbspower)
         {
             if (IsSpecialAbilityUsed == false)
             {
                 int damage = obbs + obbspower;
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("Obbs Damage!!!");
+                Console.WriteLine($"-{ damage}");
+                PlayerHP -= damage;
                 Console.ResetColor();
             } 
             else
