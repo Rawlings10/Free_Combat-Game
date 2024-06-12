@@ -15,6 +15,8 @@ namespace Free_Combat.Characters
 
         }
 
+        Character blaze = new Character(name, health);
+
         internal int HP { get; set; } = 100;
         internal static string name = "Blaze";
         internal static int health = 100;
@@ -29,13 +31,13 @@ namespace Free_Combat.Characters
             switch (key)
             {
                 case ConsoleKey.A:
-                    Character.Punch(punchpower);
+                    blaze.Punch(punchpower);
                     break;
                 case ConsoleKey.B:
-                    Character.Kick(kickpower);
+                    blaze.Kick(kickpower);
                     break;
                 case ConsoleKey.W:
-                    Character.SpecialAbility(obbs, obbpower);
+                    blaze.SpecialAbility(obbs, obbpower);
                     break;
             }
         }
