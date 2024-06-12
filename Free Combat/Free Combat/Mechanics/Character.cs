@@ -67,6 +67,11 @@ namespace Free_Combat.Mechanics
             Console.WriteLine("              vs");
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine($"                 {player2.Name} ({player2.GetType().Name})");
+
+            SetTimer(2000);
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("FIGHT");
             Console.ResetColor();
         }
 
@@ -121,6 +126,10 @@ namespace Free_Combat.Mechanics
                 Console.ResetColor();
             }
             return IsSpecialAbilityUsed = true;           
+        }
+        public void FightScene()
+        {
+            
         }
 
         public static void SetTimer(int time)
