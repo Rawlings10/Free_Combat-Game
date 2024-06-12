@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Free_Combat.Mechanics
 {
-    interface IPlayersAbility
+    public interface IPlayersAbility
     {
         internal abstract void SkillMove();
         internal abstract void PlayerControl(ConsoleKey key);

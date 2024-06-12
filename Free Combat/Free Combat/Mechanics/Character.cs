@@ -143,7 +143,7 @@ namespace Free_Combat.Mechanics
 
         public static void SetTimer(int time)
         {
-            Thread.Sleep(1000);           
+            Thread.Sleep(time);           
         }     
     } 
 }
