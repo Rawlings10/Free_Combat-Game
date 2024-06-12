@@ -77,8 +77,9 @@ namespace Free_Combat.Mechanics
             
             while(player1.PlayerHP >= 0 && player2.PlayerHP >= 0)
             {
+                IPlayersAbility p1 = new Character(player1);
                 ConsoleKey key = Console.ReadKey(true).Key;
-                UtilizeControl(player1, key);
+                UtilizeControl(p1, key);
                 UtilizeControl(player2, key);
             }
         }
