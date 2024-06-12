@@ -26,7 +26,7 @@ namespace Free_Combat.Characters
         internal static int strenght = 95;
         internal static int obbpower = 2;
 
-        public void PlayerControl(ConsoleKey key)
+        public void PlayerControl(Character player, ConsoleKey key)
         {
             switch (key)
             {

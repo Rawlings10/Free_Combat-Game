@@ -9,6 +9,6 @@ namespace Free_Combat.Mechanics
     public interface IPlayersAbility
     {
         internal abstract void SkillMove();
-        internal abstract void PlayerControl(ConsoleKey key);
+        internal abstract void PlayerControl(Character player, ConsoleKey key);
     }
 }

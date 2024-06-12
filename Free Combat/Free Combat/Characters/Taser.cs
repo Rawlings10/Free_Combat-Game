@@ -22,7 +22,7 @@ namespace Free_Combat.Characters
         public static int strenght = 93;
         public static int obbpower = 3;
 
-        public void PlayerControl(ConsoleKey key)
+        public void PlayerControl(Character player, ConsoleKey key)
         {
             throw new NotImplementedException();
         }

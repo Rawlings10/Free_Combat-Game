@@ -7,6 +7,8 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
+using System.Linq.Expressions;
+using System.ComponentModel;
 
 namespace Free_Combat.Mechanics
 {
@@ -77,10 +79,10 @@ namespace Free_Combat.Mechanics
             
             while(player1.PlayerHP >= 0 && player2.PlayerHP >= 0)
             {
-                IPlayersAbility p1 = new Character(player1);
+                IPlayersAbility control = null;
                 ConsoleKey key = Console.ReadKey(true).Key;
-                UtilizeControl(p1, key);
-                UtilizeControl(player2, key);
+                UtilizeControl(control, player1, key);
+                UtilizeControl(control, player2, key);
             }
         }
 
@@ -136,9 +138,9 @@ namespace Free_Combat.Mechanics
             }
             return IsSpecialAbilityUsed = true;           
         }
-        public void UtilizeControl(IPlayersAbility Control, ConsoleKey key)
+        public void UtilizeControl(IPlayersAbility Control, Character player, ConsoleKey key)
         {
-            Control.PlayerControl(key);            
+            Control.PlayerControl(player, key);            
         }
 
         public static void SetTimer(int time)
