@@ -16,6 +16,7 @@ namespace Free_Combat.Mechanics
         public string Name { get; set; }
 
         internal static bool IsSpecialAbilityUsed = false;
+        private static Character currentCharacter;
 
         public Character(string name, int playerHP) 
         {
@@ -73,6 +74,13 @@ namespace Free_Combat.Mechanics
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("FIGHT");
             Console.ResetColor();
+            
+            while(player1.PlayerHP >= 0 && player2.PlayerHP >= 0)
+            {
+                ConsoleKey key = Console.ReadKey(true).Key;
+                UtilizeControl(player1, key);
+                UtilizeControl(player2, key);
+            }
         }
 
         public static Character Selectplayer(string name, List<Func<string, Character>> selectPlayer, List<string> classNames)
@@ -127,9 +135,9 @@ namespace Free_Combat.Mechanics
             }
             return IsSpecialAbilityUsed = true;           
         }
-        public void FightScene()
+        public void UtilizeControl(IPlayersAbility Control, ConsoleKey key)
         {
-            
+            Control.PlayerControl(key);            
         }
 
         public static void SetTimer(int time)
