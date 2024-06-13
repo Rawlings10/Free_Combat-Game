@@ -46,10 +46,5 @@ namespace Free_Combat.Characters
         {
             throw new NotImplementedException();
         }
-
-        public override void Punch()
-        {
-
-        }
     }
 }

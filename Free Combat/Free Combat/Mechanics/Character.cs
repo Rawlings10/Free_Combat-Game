@@ -9,16 +9,36 @@ using System.Threading.Tasks;
 using System.Threading;
 using System.Linq.Expressions;
 using System.ComponentModel;
+using System.Numerics;
 
 namespace Free_Combat.Mechanics
 {
-    public class Character
+    public class Character : IPlayersAbility
     {
+        public void PlayerControl(Character player, ConsoleKey key)
+        {
+            switch (key)
+            {
+                case ConsoleKey.A:
+                    player.Punch(punchpower);
+                    break;
+                case ConsoleKey.B:
+                    player.Kick(kickpower);
+                    break;
+                case ConsoleKey.W:
+                    player.SpecialAbility(obbs, obbpower);
+                    break;
+            }
+        }
         public int PlayerHP { get; protected set; }
         public string Name { get; set; }
 
+        internal static int obbs;
+        internal static int punchpower;
+        internal static int kickpower;
+        internal static int strenght;
+        internal static int obbpower;
         internal static bool IsSpecialAbilityUsed = false;
-        private static Character currentCharacter;
 
         public Character(string name, int playerHP) 
         {
@@ -79,10 +99,12 @@ namespace Free_Combat.Mechanics
             
             while(player1.PlayerHP >= 0 && player2.PlayerHP >= 0)
             {
-                IPlayersAbility control = null;
                 ConsoleKey key = Console.ReadKey(true).Key;
-                UtilizeControl(control, player1, key);
-                UtilizeControl(control, player2, key);
+                player1.PlayerControl(player2, key);
+                Console.WriteLine();
+                Console.WriteLine("Player2 turn");
+                ConsoleKey ky = Console.ReadKey(true).Key;
+                player2.PlayerControl(player1, ky);
             }
         }
 
@@ -110,7 +132,8 @@ namespace Free_Combat.Mechanics
             punchpower /= 12;
             Random random = new Random();
             punchpower = random.Next(punchpower, punchpower + 4);
-            PlayerHP -= punchpower; 
+            PlayerHP -= punchpower;
+            Console.WriteLine($"Punch: -{punchpower}");
         }
 
         public void Kick(int kickpower)
