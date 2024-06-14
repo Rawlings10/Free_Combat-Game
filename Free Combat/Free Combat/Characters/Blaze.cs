@@ -14,7 +14,6 @@ namespace Free_Combat.Characters
 
         //Character blaze = new Character(name, health);
 
-        internal int HP { get; set; } = 100;
         internal static string name = "Blaze";
         internal static int health = 100;
         internal static int obbs = 12;

@@ -22,10 +22,10 @@ namespace Free_Combat.Mechanics
                 case ConsoleKey.A:
                     player.Punch(PunchPower);
                     break;
-                case ConsoleKey.B:
+                case ConsoleKey.S:
                     player.Kick(KickPower);
                     break;
-                case ConsoleKey.W:
+                case ConsoleKey.D:
                     player.SpecialAbility(Obbs, ObbsPower);
                     break;
             }
@@ -147,6 +147,7 @@ namespace Free_Combat.Mechanics
             Random random = new Random();
             kickpower = random.Next(kickpower, kickpower + 4);
             PlayerHP -= kickpower;
+            Console.WriteLine($"Kick: -{kickpower}");
         }
 
         public bool SpecialAbility(int obbs, int obbspower)
