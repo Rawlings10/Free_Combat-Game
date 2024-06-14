@@ -10,12 +10,9 @@ namespace Free_Combat.Characters
 {
     internal class Blaze: Character, IPlayersAbility
     {
-        public Blaze(string name) : base(name, 100)
-        {
+       
 
-        }
-
-        Character blaze = new Character(name, health);
+        //Character blaze = new Character(name, health);
 
         internal int HP { get; set; } = 100;
         internal static string name = "Blaze";
@@ -25,21 +22,12 @@ namespace Free_Combat.Characters
         internal static int kickpower = 76;
         internal static int strenght = 95;
         internal static int obbpower = 2;
+        internal static bool IsSpecialAbilityUsed = false;
 
-        public void PlayerControl(Character player, ConsoleKey key)
+
+        public Blaze(string name) : base(name, health, obbs, punchpower, kickpower, obbpower, IsSpecialAbilityUsed)
         {
-            switch (key)
-            {
-                case ConsoleKey.A:
-                    blaze.Punch(punchpower);
-                    break;
-                case ConsoleKey.B:
-                    blaze.Kick(kickpower);
-                    break;
-                case ConsoleKey.W:
-                    blaze.SpecialAbility(obbs, obbpower);
-                    break;
-            }
+            
         }
 
         public void SkillMove()

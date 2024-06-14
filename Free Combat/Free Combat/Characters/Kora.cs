@@ -9,7 +9,7 @@ namespace Free_Combat.Characters
 {
     internal class Kora : Character
     {
-        public Kora(string name) : base(name, 100)
+        public Kora(string name) : base(name, health, obbs, punchpower, kickpower, obbpower, IsSpecialAbilityUsed)
         {
 
         }
@@ -21,6 +21,7 @@ namespace Free_Combat.Characters
         public static int kickpower = 92;
         public static int strenght = 83;
         public static int obbpower = 6;
+        internal static bool IsSpecialAbilityUsed = false;
 
         public void PlayerControl(ConsoleKey key)
         {

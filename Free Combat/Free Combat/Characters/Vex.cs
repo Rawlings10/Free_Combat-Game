@@ -9,7 +9,7 @@ namespace Free_Combat.Characters
 {
     internal class Vex : Character
     {
-        public Vex(string name) : base(name, 100)
+        public Vex(string name) : base(name, health, obbs, punchpower, kickpower, obbpower, IsSpecialAbilityUsed)
         {
 
         }
@@ -21,6 +21,7 @@ namespace Free_Combat.Characters
         public static int kickpower = 69;
         public static int strenght = 93;
         public static int obbpower = 4;
+        internal static bool IsSpecialAbilityUsed = false;
 
         public void PlayerControl(Character player, ConsoleKey key)
         {

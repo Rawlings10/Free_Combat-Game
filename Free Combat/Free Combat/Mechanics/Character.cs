@@ -20,30 +20,35 @@ namespace Free_Combat.Mechanics
             switch (key)
             {
                 case ConsoleKey.A:
-                    player.Punch(punchpower);
+                    player.Punch(PunchPower);
                     break;
                 case ConsoleKey.B:
-                    player.Kick(kickpower);
+                    player.Kick(KickPower);
                     break;
                 case ConsoleKey.W:
-                    player.SpecialAbility(obbs, obbpower);
+                    player.SpecialAbility(Obbs, ObbsPower);
                     break;
             }
         }
-        public int PlayerHP { get; protected set; }
-        public string Name { get; set; }
+        private int PlayerHP { get; set; }
+        private string Name { get; set; }
 
-        internal static int obbs;
-        internal static int punchpower;
-        internal static int kickpower;
-        internal static int strenght;
-        internal static int obbpower;
-        internal static bool IsSpecialAbilityUsed = false;
+        private int Obbs { get; set; }
+        private int PunchPower;
+        private int KickPower;
+        private int Strenght;
+        private int ObbsPower;
+        private bool IsSpecialAbilityUsed = false;
 
-        public Character(string name, int playerHP) 
+        public Character(string name, int playerHP, int obbs, int punchpower, int kickpower, int obbspower, bool specialability) 
         {
             this.Name = name;
             this.PlayerHP = playerHP;
+            this.Obbs = obbs;
+            this.PunchPower = punchpower;
+            this.KickPower = kickpower;
+            this.ObbsPower = obbspower;
+            this.IsSpecialAbilityUsed = specialability;
         }
 
         public void ChoosenCharacter()

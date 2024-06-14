@@ -9,7 +9,7 @@ namespace Free_Combat.Characters
 {
     internal class Taser : Character
     {
-        public Taser(string name) : base(name, 100)
+        public Taser(string name) : base(name, health, obbs, punchpower, kickpower, obbpower, IsSpecialAbilityUsed)
         {
 
         }
@@ -21,6 +21,7 @@ namespace Free_Combat.Characters
         public static int kickpower = 83;
         public static int strenght = 93;
         public static int obbpower = 3;
+        internal static bool IsSpecialAbilityUsed = false;
 
         public void PlayerControl(Character player, ConsoleKey key)
         {

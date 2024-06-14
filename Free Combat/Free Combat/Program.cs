@@ -7,7 +7,7 @@ namespace Rawlings_Code
     {
         static void Main(string[] args)
         {
-            Character game = new Character("player", 100);
+            Character game = new Character("player", 100, 0, 0, 0, 0, false);
             game.ChoosenCharacter();           
         }
     }
