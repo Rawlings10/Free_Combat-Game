@@ -23,7 +23,7 @@ namespace Free_Combat.Mechanics
                     player.Punch(PunchPower);
                     break;
                 case ConsoleKey.S:
-                    player.Kick(KickPower);
+                    Kick(KickPower, player);
                     break;
                 case ConsoleKey.D:
                     player.SpecialAbility(Obbs, ObbsPower);
@@ -101,6 +101,7 @@ namespace Free_Combat.Mechanics
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("FIGHT");
             Console.ResetColor();
+            DisplayBoard(player1, player2);
             
             while(player1.PlayerHP >= 0 && player2.PlayerHP >= 0)
             {
@@ -141,12 +142,12 @@ namespace Free_Combat.Mechanics
             Console.WriteLine($"Punch: -{punchpower}");
         }
 
-        public void Kick(int kickpower)
+        public void Kick(int kickpower, Character player)
         {
             kickpower /= 12;
             Random random = new Random();
             kickpower = random.Next(kickpower, kickpower + 4);
-            PlayerHP -= kickpower;
+            player.PlayerHP -= kickpower;
             Console.WriteLine($"Kick: -{kickpower}");
         }
 
@@ -169,6 +170,47 @@ namespace Free_Combat.Mechanics
             }
             return IsSpecialAbilityUsed = true;           
         }
+
+        public void DisplayBoard(Character player1, Character player2)
+        {
+            Console.ForegroundColor= ConsoleColor.Green;
+            Console.WriteLine(player1.PlayerHP);
+            if (player1.PlayerHP <= 70)
+            {
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine(player1.PlayerHP);
+            }
+            else if (player1.PlayerHP <= 30)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine(player1.PlayerHP);
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Player 1 Defeated");
+                Console.ResetColor();
+            }
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine(player2.PlayerHP);
+            if (player1.PlayerHP <= 70)
+            {
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine(player2.PlayerHP);
+            }
+            else if (player2.PlayerHP <= 30)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine(player2.PlayerHP);
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Player 2 Defeated");
+                Console.ResetColor();
+            }
+        }
+
         public void UtilizeControl(IPlayersAbility Control, Character player, ConsoleKey key)
         {
             Control.PlayerControl(player, key);            
