@@ -173,16 +173,20 @@ namespace Free_Combat.Mechanics
 
         public void DisplayBoard(Character player1, Character player2)
         {
-            Console.ForegroundColor= ConsoleColor.Green;
             Console.WriteLine(player1.PlayerHP);
-            if (player1.PlayerHP <= 70)
+            if (player1.PlayerHP <= 80)
             {
-                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine(player1.PlayerHP);
             }
             else if (player1.PlayerHP <= 30)
             {
-                Console.ForegroundColor = ConsoleColor.Red;
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine(player1.PlayerHP);
+            }
+            else if (player1.PlayerHP < 30)
+            {
+                Console.ForegroundColor = ConsoleColor.Reda;
                 Console.WriteLine(player1.PlayerHP);
             }
             else
@@ -191,17 +195,21 @@ namespace Free_Combat.Mechanics
                 Console.WriteLine("Player 1 Defeated");
                 Console.ResetColor();
             }
-            Console.ForegroundColor = ConsoleColor.Green;
+            
             Console.WriteLine(player2.PlayerHP);
-            if (player1.PlayerHP <= 70)
+            if (player2.PlayerHP >= 80)
             {
-                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine(player2.PlayerHP);
             }
             else if (player2.PlayerHP <= 30)
             {
-                Console.ForegroundColor = ConsoleColor.Red;
+                Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine(player2.PlayerHP);
+            }
+            else if (player2.PlayerHP < 30)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
             }
             else
             {
