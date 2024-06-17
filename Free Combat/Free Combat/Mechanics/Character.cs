@@ -173,7 +173,6 @@ namespace Free_Combat.Mechanics
 
         public void DisplayBoard(Character player1, Character player2)
         {
-            Console.WriteLine(player1.PlayerHP);
             if (player1.PlayerHP <= 80)
             {
                 Console.ForegroundColor = ConsoleColor.Green;
@@ -186,7 +185,7 @@ namespace Free_Combat.Mechanics
             }
             else if (player1.PlayerHP < 30)
             {
-                Console.ForegroundColor = ConsoleColor.Reda;
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine(player1.PlayerHP);
             }
             else
@@ -196,7 +195,6 @@ namespace Free_Combat.Mechanics
                 Console.ResetColor();
             }
             
-            Console.WriteLine(player2.PlayerHP);
             if (player2.PlayerHP >= 80)
             {
                 Console.ForegroundColor = ConsoleColor.Green;
