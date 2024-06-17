@@ -15,21 +15,6 @@ namespace Free_Combat.Mechanics
 {
     public class Character : IPlayersAbility
     {
-        public void PlayerControl(Character player, ConsoleKey key)
-        {
-            switch (key)
-            {
-                case ConsoleKey.A:
-                    player.Punch(PunchPower);
-                    break;
-                case ConsoleKey.S:
-                    Kick(KickPower, player);
-                    break;
-                case ConsoleKey.D:
-                    player.SpecialAbility(Obbs, ObbsPower);
-                    break;
-            }
-        }
         private int PlayerHP { get; set; }
         private string Name { get; set; }
 
@@ -49,6 +34,22 @@ namespace Free_Combat.Mechanics
             this.KickPower = kickpower;
             this.ObbsPower = obbspower;
             this.IsSpecialAbilityUsed = specialability;
+        }
+
+        public void PlayerControl(Character player, ConsoleKey key)
+        {
+            switch (key)
+            {
+                case ConsoleKey.A:
+                    player.Punch(PunchPower);
+                    break;
+                case ConsoleKey.S:
+                    Kick(KickPower, player);
+                    break;
+                case ConsoleKey.D:
+                    player.SpecialAbility(Obbs, ObbsPower);
+                    break;
+            }
         }
 
         public void ChoosenCharacter()
@@ -105,12 +106,15 @@ namespace Free_Combat.Mechanics
             
             while(player1.PlayerHP >= 0 && player2.PlayerHP >= 0)
             {
+                Console.WriteLine("Player 1 turn");
                 ConsoleKey key = Console.ReadKey(true).Key;
                 player1.PlayerControl(player2, key);
                 Console.WriteLine();
-                Console.WriteLine("Player2 turn");
+
+                Console.WriteLine("Player 2 turn");
                 ConsoleKey ky = Console.ReadKey(true).Key;
                 player2.PlayerControl(player1, ky);
+                Console.WriteLine();
             }
         }
 
@@ -209,11 +213,6 @@ namespace Free_Combat.Mechanics
                 Console.WriteLine("Player 2 Defeated");
                 Console.ResetColor();
             }
-        }
-
-        public void UtilizeControl(IPlayersAbility Control, Character player, ConsoleKey key)
-        {
-            Control.PlayerControl(player, key);            
         }
 
         public static void SetTimer(int time)
