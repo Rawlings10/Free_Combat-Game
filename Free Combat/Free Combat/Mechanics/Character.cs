@@ -188,12 +188,6 @@ namespace Free_Combat.Mechanics
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine(player1.PlayerHP);
             }
-            else
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Player 1 Defeated");
-                Console.ResetColor();
-            }
             
             if (player2.PlayerHP >= 80)
             {
