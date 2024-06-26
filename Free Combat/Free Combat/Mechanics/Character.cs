@@ -44,7 +44,7 @@ namespace Free_Combat.Mechanics
                     player.Punch(PunchPower);
                     break;
                 case ConsoleKey.S:
-                    Kick(KickPower, player);
+                    Kick(KickPower);
                     break;
                 case ConsoleKey.D:
                     player.SpecialAbility(Obbs, ObbsPower);
@@ -111,7 +111,6 @@ namespace Free_Combat.Mechanics
             
             while(player1.PlayerHP >= 0 && player2.PlayerHP >= 0)
             {
-                p2(player2);
                 DisplayBoard(player1, player2);
 
                 Console.WriteLine("Player 1 turn");
@@ -155,12 +154,12 @@ namespace Free_Combat.Mechanics
             Console.WriteLine($"Punch: -{punchpower}");
         }
 
-        public void Kick(int kickpower, Character player)
+        public void Kick(int kickpower)
         {
             kickpower /= 12;
             Random random = new Random();
             kickpower = random.Next(kickpower, kickpower + 4);
-            player.PlayerHP -= kickpower;
+            PlayerHP -= kickpower;
             Console.WriteLine($"Kick: -{kickpower}");
         }
 
