@@ -90,6 +90,8 @@ namespace Free_Combat.Mechanics
             Character player2 = Selectplayer("Player2", choosenPlayer, characterNames);
             Console.WriteLine();
             Console.WriteLine();
+
+
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine($"{player1.Name} ({player1.GetType().Name})");
             Console.ForegroundColor = ConsoleColor.Red;
@@ -97,15 +99,21 @@ namespace Free_Combat.Mechanics
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine($"                 {player2.Name} ({player2.GetType().Name})");
 
+
             SetTimer(2000);
             Console.Clear();
+
+
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("FIGHT");
             Console.ResetColor();
-            DisplayBoard(player1, player2);
+            
             
             while(player1.PlayerHP >= 0 && player2.PlayerHP >= 0)
             {
+                p2(player2);
+                DisplayBoard(player1, player2);
+
                 Console.WriteLine("Player 1 turn");
                 ConsoleKey key = Console.ReadKey(true).Key;
                 player1.PlayerControl(player2, key);
@@ -114,7 +122,8 @@ namespace Free_Combat.Mechanics
                 Console.WriteLine("Player 2 turn");
                 ConsoleKey ky = Console.ReadKey(true).Key;
                 player2.PlayerControl(player1, ky);
-                Console.WriteLine();
+                SetTimer(1000);
+                Console.Clear();
             }
         }
 
@@ -215,6 +224,11 @@ namespace Free_Combat.Mechanics
                 Console.WriteLine("Player 2 Defeated");
                 Console.ResetColor();
             }
+        }
+
+        public static void p2(Character player)
+        {
+            Console.WriteLine(player.PlayerHP);
         }
 
         public static void SetTimer(int time)
