@@ -111,7 +111,8 @@ namespace Free_Combat.Mechanics
             
             while(player1.PlayerHP >= 0 && player2.PlayerHP >= 0)
             {
-                DisplayBoard(player1, player2);
+                Player1DisplayBoard(player1);
+                Player2DisplayBoard(player2);
 
                 Console.WriteLine("Player 1 turn");
                 ConsoleKey key = Console.ReadKey(true).Key;
@@ -183,44 +184,62 @@ namespace Free_Combat.Mechanics
             return IsSpecialAbilityUsed = true;           
         }
 
-        public void DisplayBoard(Character player1, Character player2)
+        public void Player1DisplayBoard(Character player1)
         {
             Console.WriteLine($"PLAYER 1: {player1.GetType().Name}");
-            if (player1.PlayerHP <= 80)
+            if (player1.PlayerHP >= 80)
             {
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine(player1.PlayerHP);
+                Console.ResetColor();
             }
-            else if (player1.PlayerHP <= 30)
+            else if (player1.PlayerHP >= 30)
             {
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine(player1.PlayerHP);
+                Console.ResetColor();
             }
             else if (player1.PlayerHP < 30)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine(player1.PlayerHP);
+                Console.ResetColor();
             }
+            else if (player1.PlayerHP < 0)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Player 1 Defeated");
+                SetTimer(1500);
+                Console.ResetColor();
+            }
+        }
 
+        public void Player2DisplayBoard(Character player2)
+        {
             Console.WriteLine($"PLAYER 2: {player2.GetType().Name}");
             if (player2.PlayerHP >= 80)
             {
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine(player2.PlayerHP);
+                Console.ResetColor();
             }
-            else if (player2.PlayerHP <= 30)
+            else if (player2.PlayerHP >= 30)
             {
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine(player2.PlayerHP);
+                Console.ResetColor();
             }
             else if (player2.PlayerHP < 30)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine(player2.PlayerHP);
+                Console.ResetColor();
             }
-            else
+            else if(player2.PlayerHP < 0)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Player 2 Defeated");
+                SetTimer(1500);
                 Console.ResetColor();
             }
         }
