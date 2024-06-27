@@ -44,7 +44,7 @@ namespace Free_Combat.Mechanics
                     player.Punch(PunchPower);
                     break;
                 case ConsoleKey.S:
-                    Kick(KickPower);
+                    player.Kick(KickPower);
                     break;
                 case ConsoleKey.D:
                     player.SpecialAbility(Obbs, ObbsPower);
