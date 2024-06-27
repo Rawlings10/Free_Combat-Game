@@ -101,18 +101,19 @@ namespace Free_Combat.Mechanics
 
 
             SetTimer(2000);
-            Console.Clear();
-
-
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("FIGHT");
-            Console.ResetColor();
+            Console.Clear();         
             
-            
+
             while(player1.PlayerHP >= 0 && player2.PlayerHP >= 0)
             {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("                                                         FIGHT                                                      ");
+                Console.ResetColor();
+
                 Player1DisplayBoard(player1);
                 Player2DisplayBoard(player2);
+                Console.WriteLine();
+                Console.WriteLine();
 
                 Console.WriteLine("Player 1 turn");
                 ConsoleKey key = Console.ReadKey(true).Key;
