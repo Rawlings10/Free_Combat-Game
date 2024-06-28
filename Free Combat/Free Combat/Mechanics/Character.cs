@@ -250,6 +250,11 @@ namespace Free_Combat.Mechanics
             Console.WriteLine(player.PlayerHP);
         }
 
+        public static void empty()
+        {
+            Console.WriteLine();
+        }
+
         public static void SetTimer(int time)
         {
             Thread.Sleep(time);           
