@@ -104,7 +104,7 @@ namespace Free_Combat.Mechanics
             Console.Clear();         
             
 
-            while(player1.PlayerHP >= 0 && player2.PlayerHP >= 0)
+            while(player1.PlayerHP > 0 && player2.PlayerHP > 0)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("                                                         FIGHT                                                      ");
@@ -125,7 +125,11 @@ namespace Free_Combat.Mechanics
                 player2.PlayerControl(player1, ky);
                 SetTimer(1000);
                 Console.Clear();
+
+                GameWinner(player1, player2);
             }
+
+            
         }
 
         public static Character Selectplayer(string name, List<Func<string, Character>> selectPlayer, List<string> classNames)
@@ -245,14 +249,20 @@ namespace Free_Combat.Mechanics
             }
         }
 
-        public static void p2(Character player)
+        public static void GameWinner(Character player1, Character player2)
         {
-            Console.WriteLine(player.PlayerHP);
-        }
-
-        public static void empty()
-        {
-            Console.WriteLine();
+            if(player1.PlayerHP <= 0 &&  player2.PlayerHP >= 0) 
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine($"{player2.GetType().Name} Wins");
+                Console.ResetColor();
+            }
+            else if(player1.PlayerHP >= 0 && player2.PlayerHP <= 0)
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine($"{player1.GetType().Name} Wins");
+                Console.ResetColor();
+            }
         }
 
         public static void SetTimer(int time)
