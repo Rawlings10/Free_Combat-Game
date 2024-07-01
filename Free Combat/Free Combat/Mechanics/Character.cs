@@ -264,10 +264,14 @@ namespace Free_Combat.Mechanics
                 Console.ResetColor();
             }
         }
-
         public static void SetTimer(int time)
         {
             Thread.Sleep(time);           
-        }     
+        }   
+        
+        public static void boy()
+        {
+
+        }
     } 
 }
