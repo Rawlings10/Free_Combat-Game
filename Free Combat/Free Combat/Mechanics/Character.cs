@@ -273,5 +273,10 @@ namespace Free_Combat.Mechanics
         {
 
         }
+
+        public static void gggy()
+        {
+
+        }
     } 
 }
