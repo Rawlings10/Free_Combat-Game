@@ -269,14 +269,6 @@ namespace Free_Combat.Mechanics
             Thread.Sleep(time);           
         }   
         
-        public static void boy()
-        {
-
-        }
-
-        public static void gggy()
-        {
-
-        }
+      
     } 
 }
