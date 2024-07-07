@@ -267,8 +267,11 @@ namespace Free_Combat.Mechanics
         public static void SetTimer(int time)
         {
             Thread.Sleep(time);           
-        }   
-        
-      
+        }
+
+        public static void Timer(int time)
+        {
+            //empty
+        }
     } 
 }
