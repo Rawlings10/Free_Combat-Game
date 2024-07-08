@@ -100,7 +100,7 @@ namespace Free_Combat.Mechanics
             Console.WriteLine($"                 {player2.Name} ({player2.GetType().Name})");
 
 
-            SetTimer(2000);
+            SetTimer(1500);
             Console.Clear();
 
 
@@ -118,18 +118,27 @@ namespace Free_Combat.Mechanics
                 Console.WriteLine("Player 1 turn");
                 ConsoleKey key = Console.ReadKey(true).Key;
                 player1.PlayerControl(player2, key);
+                if(player2.PlayerHP <= 0) 
+                {
+                    break;
+                }
                 Console.WriteLine();
 
                 Console.WriteLine("Player 2 turn");
                 ConsoleKey ky = Console.ReadKey(true).Key;
                 player2.PlayerControl(player1, ky);
+                if (player1.PlayerHP <= 0)
+                {
+                    break;
+                }
                 SetTimer(1000);
                 Console.Clear();
-
-                GameWinner(player1, player2);
             }
 
-
+            Console.Clear();
+            GameOver();
+            GameWinner(player1, player2);
+            SetTimer(2000);
         }
 
         public static Character Selectplayer(string name, List<Func<string, Character>> selectPlayer, List<string> classNames)
@@ -269,9 +278,11 @@ namespace Free_Combat.Mechanics
             Thread.Sleep(time);
         }
 
-        public static string GameOver()
+        public static void GameOver()
         {
-            return "GameOver";
+            Console.ForegroundColor = ConsoleColor.DarkRed;
+            Console.WriteLine("GameOver");
+            Console.ResetColor();
         }
     } 
 }
