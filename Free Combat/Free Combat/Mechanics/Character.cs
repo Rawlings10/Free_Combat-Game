@@ -25,7 +25,7 @@ namespace Free_Combat.Mechanics
         private int ObbsPower;
         private bool IsSpecialAbilityUsed = false;
 
-        public Character(string name, int playerHP, int obbs, int punchpower, int kickpower, int obbspower, bool specialability) 
+        public Character(string name, int playerHP, int obbs, int punchpower, int kickpower, int obbspower, bool specialability)
         {
             this.Name = name;
             this.PlayerHP = playerHP;
@@ -80,7 +80,7 @@ namespace Free_Combat.Mechanics
                 "Vex",
                 "Zeph",
                 "Krod",
-                "Kim",              
+                "Kim",
             };
 
             Console.WriteLine("Player 1, choose your Character: ");
@@ -101,10 +101,10 @@ namespace Free_Combat.Mechanics
 
 
             SetTimer(2000);
-            Console.Clear();         
-            
+            Console.Clear();
 
-            while(player1.PlayerHP > 0 && player2.PlayerHP > 0)
+
+            while (player1.PlayerHP > 0 && player2.PlayerHP > 0)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("                                                         FIGHT                                                      ");
@@ -129,12 +129,12 @@ namespace Free_Combat.Mechanics
                 GameWinner(player1, player2);
             }
 
-            
+
         }
 
         public static Character Selectplayer(string name, List<Func<string, Character>> selectPlayer, List<string> classNames)
         {
-            for(int i = 0; i < classNames.Count; i++)
+            for (int i = 0; i < classNames.Count; i++)
             {
                 Console.WriteLine($"{i + 1}. {classNames[i]}");
             }
@@ -142,14 +142,14 @@ namespace Free_Combat.Mechanics
             int choice;
             do
             {
-                Console.Write($"Select a character (1-{classNames.Count}): " );
+                Console.Write($"Select a character (1-{classNames.Count}): ");
             }
-            while(!int.TryParse(Console.ReadLine(), out choice) || choice < 1 || choice > classNames.Count);
+            while (!int.TryParse(Console.ReadLine(), out choice) || choice < 1 || choice > classNames.Count);
 
             return selectPlayer[choice - 1](name);
         }
 
-        
+
 
         public void Punch(int punchpower)
         {
@@ -176,17 +176,17 @@ namespace Free_Combat.Mechanics
                 int damage = obbs + obbspower;
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("Obbs Damage!!!");
-                Console.WriteLine($"-{ damage}");
+                Console.WriteLine($"-{damage}");
                 PlayerHP -= damage;
                 Console.ResetColor();
-            } 
+            }
             else
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Special Ability has been used!!!");
                 Console.ResetColor();
             }
-            return IsSpecialAbilityUsed = true;           
+            return IsSpecialAbilityUsed = true;
         }
 
         public void Player1DisplayBoard(Character player1)
@@ -240,7 +240,7 @@ namespace Free_Combat.Mechanics
                 Console.WriteLine(player2.PlayerHP);
                 Console.ResetColor();
             }
-            else if(player2.PlayerHP < 0)
+            else if (player2.PlayerHP < 0)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Player 2 Defeated");
@@ -251,13 +251,13 @@ namespace Free_Combat.Mechanics
 
         public static void GameWinner(Character player1, Character player2)
         {
-            if(player1.PlayerHP <= 0 &&  player2.PlayerHP >= 0) 
+            if (player1.PlayerHP <= 0 && player2.PlayerHP >= 0)
             {
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine($"{player2.GetType().Name} Wins");
                 Console.ResetColor();
             }
-            else if(player1.PlayerHP >= 0 && player2.PlayerHP <= 0)
+            else if (player1.PlayerHP >= 0 && player2.PlayerHP <= 0)
             {
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine($"{player1.GetType().Name} Wins");
@@ -266,12 +266,12 @@ namespace Free_Combat.Mechanics
         }
         public static void SetTimer(int time)
         {
-            Thread.Sleep(time);           
+            Thread.Sleep(time);
         }
 
-        public static void Timer(int time)
+        public static string GameOver()
         {
-            //empty
+            return "GameOver";
         }
     } 
 }
