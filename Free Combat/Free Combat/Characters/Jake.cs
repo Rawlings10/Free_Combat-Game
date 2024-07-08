@@ -9,11 +9,6 @@ namespace Free_Combat.Characters
 {
     internal class Jake : Character, IPlayersAbility
     {
-        public Jake(string name) : base(name, health, obbs, punchpower, kickpower, obbpower, IsSpecialAbilityUsed)
-        {
-
-        }
-
         public static string name = "Jake";
         public static int health = 100;
         public static int obbs = 12;
@@ -23,9 +18,9 @@ namespace Free_Combat.Characters
         public static int obbpower = 3;
         internal static bool IsSpecialAbilityUsed = false;
 
-        public void PlayerControl(Character player, ConsoleKey key)
+        public Jake(string name) : base(name, health, obbs, punchpower, kickpower, obbpower, IsSpecialAbilityUsed)
         {
-            throw new NotImplementedException();
+
         }
 
         public void SkillMove()
